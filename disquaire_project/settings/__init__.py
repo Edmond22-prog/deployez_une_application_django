@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-gfqlpi7s(o=x&!yw*n1zdt*2ddh0f-o(sfpr7$p2f-f+zrivjs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["185.207.251.182"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'django.middleware.locale.LocaleMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = "disquaire_project.urls"
@@ -81,8 +81,8 @@ WSGI_APPLICATION = "disquaire_project.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'edghi_disquaire',
-        'USER': 'edghi', # your user name
+        'NAME': 'disquaire',
+        'USER': 'edghi_deploy', # your user name
         'PASSWORD': '123admin', # your password
         'HOST': 'localhost',
         'PORT': '5432',
@@ -129,17 +129,9 @@ STATIC_URL = "/static/"
 # Django debug toolbar
 INTERNAL_IPS = ['127.0.0.1']
 
-
-#if os.environ.get('ENV') == 'PRODUCTION':
-
-    # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-#DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
